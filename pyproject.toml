@@ -80,7 +80,9 @@ addopts = """
 --cov-report xml:tests/reports/coverage.xml \
 --dist worksteal \
 --doctest-modules \
+--junitxml=tests/reports/junit.xml \
 -n logical \
+-o junit_family=legacy \
 --ignore=docs/
 """
 testpaths = [
