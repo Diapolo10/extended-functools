@@ -50,19 +50,41 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [0.1.1] - YYYY-MM-DD
+## [0.2.0] - 2025-04-15
 
-In-progress update goes here.
+This release adds a synchronous timeout function decorator that can be used to
+forcefully end the execution of a function after a given time limit has passed.
 
 ### Added
 
-- Stuff
+- `extended_functools.timeout.timeout`, a synchronous function decorator
 
 ### Changed
 
+- Updated `README.md`
+- Updated CI workflows
+- Updated the pull request template
 - Updated localisation files
 
 -->
+
+_______________________________________________________________________________
+
+## [0.2.0] - 2025-04-15
+
+This release adds a synchronous timeout function decorator that can be used to
+forcefully end the execution of a function after a given time limit has passed.
+
+### Added
+
+- `extended_functools.timeout.timeout`, a synchronous function decorator
+
+### Changed
+
+- Updated `README.md`
+- Updated CI workflows
+- Updated the pull request template
+- Updated localisation files
 
 _______________________________________________________________________________
 

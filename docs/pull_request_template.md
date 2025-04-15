@@ -8,26 +8,35 @@ Fixes # (issue)
 
 ## Type of change
 
-Please delete options that are not relevant.
-
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [ ] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] This change requires a documentation update
 
 ## How has this been tested?
 
-Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce. Please also list any relevant details for your test configuration
+- [ ] Hands-on testing
+- [ ] Unit testing
+- [ ] Integration testing
+- [ ] End-to-end testing
 
-- [ ] Test A
-- [ ] Test B
+## Code coverage for this PR?
 
-**Test Configuration**:
+- [ ] Full coverage
+- [ ] More than 80% coverage
+- [ ] Less than 80% coverage
+- [ ] Non-code PR
 
-- Firmware version:
-- Hardware:
-- Toolchain:
-- SDK:
+## Has documentation been updated?
+
+- [ ] Documentation has been updated
+- [ ] Changelog has been updated
+- [ ] Not relevant to this PR
+
+## Have any shortcuts been taken?
+
+- [ ] To-dos added
+- [ ] Backlog items created
+- [ ] Pre-commit hooks bypassed
 
 ## Checklist
 
