@@ -19,6 +19,7 @@ on:
       - 'main'
 
 permissions:
+  id-token: write
   contents: read
 
 env:
@@ -72,6 +73,15 @@ jobs:
         env_vars: TOXENV
         fail_ci_if_error: false
         files: ./tests/reports/coverage-html/index.html,./tests/reports/coverage.xml
+        flags: unittests
+        name: ${{ matrix.os }} - Python ${{ matrix.python-version }}
+        token: ${{ secrets.CODECOV_TOKEN }}
+
+    - name: Upload test results to Codecov
+      if: ${{ !cancelled() }}
+      uses: codecov/test-results-action@v1
+      with:
+        directory: ./tests/reports/
         flags: unittests
         name: ${{ matrix.os }} - Python ${{ matrix.python-version }}
         token: ${{ secrets.CODECOV_TOKEN }}
