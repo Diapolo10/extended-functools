@@ -50,23 +50,27 @@ Lorem Ipsum dolor sit amet.
 <!--
 _______________________________________________________________________________
 
-## [0.2.0] - 2025-04-15
+## [0.2.1] - 2025-04-19
 
-This release adds a synchronous timeout function decorator that can be used to
-forcefully end the execution of a function after a given time limit has passed.
-
-### Added
-
-- `extended_functools.timeout.timeout`, a synchronous function decorator
+This minor release removes an unnecessary build dependency, and adds some additional
+comments for developers. 
 
 ### Changed
 
-- Updated `README.md`
-- Updated CI workflows
-- Updated the pull request template
-- Updated localisation files
+- Updated `pyproject.toml`'s build dependencies and linter rule comments
 
 -->
+
+_______________________________________________________________________________
+
+## [0.2.1] - 2025-04-19
+
+This minor release removes an unnecessary build dependency, and adds some additional
+comments for developers.
+
+### Changed
+
+- Updated `pyproject.toml`'s build dependencies and linter rule comments
 
 _______________________________________________________________________________
 

@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling", "uv-dynamic-versioning"]
+requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
@@ -116,8 +116,17 @@ max-complexity = 10
 
 [tool.ruff.lint.per-file-ignores]
 # https://beta.ruff.rs/docs/rules/
-"__init__.py" = ["F401", "F403", "F405",]
-"tests/*" = ["ANN", "ARG", "INP001", "S101",]
+"__init__.py" = [
+    "F401",  # Unused import; ignored as common practice in __init__.py files
+    "F403",  # Star import; ignored as common practice in __init__.py files when combined with __all__
+    "F405",  # Possibly undefined name from star import, same as above
+]
+"tests/*" = [
+    "ANN",  # Type annotations don't need to be enforced in tests
+    "ARG",  # Unused arguments are generally fixtures that apply a side-effect
+    "INP001",  # Tests don't require __init__.py files
+    "S101",  # Assert is used in nearly all tests
+]
 
 [tool.ruff.lint.pylint]
 max-args = 15
