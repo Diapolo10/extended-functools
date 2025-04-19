@@ -46,8 +46,6 @@ dev = [
     "pytest-mock>=3.14.0",
     "pytest-xdist[psutil]>=3.6.1",
     "ruff>=0.11.5",
-    "tox>=4.25.0",
-    "tox-gh-actions>=3.3.0",
 ]
 
 [tool.coverage.report]
@@ -137,26 +135,8 @@ max-statements = 80
 [tool.ruff.lint.flake8-tidy-imports]
 ban-relative-imports = "all"
 
-[tool.tox]
-legacy_tox_ini = """
-[tox]
-env_list = py3{10, 11, 12, 13}
-skip_missing_interpreters = true
-
-[gh-actions]
-python =
-    3.10: py310
-    3.11: py311
-    3.12: py312
-    3.12: py313
-
-[testenv]
-pass_env =
-    GITHUB_*
-    FORCE_COLOR
-allowlist_externals = uv
-
-commands =
-    uv run --frozen pytest
-    uv run --frozen coverage report
-"""
+[tool.tox.gh.python]
+"3.13" = ["3.13", "type", "pkg_meta"]
+"3.12" = ["3.12"]
+"3.11" = ["3.11"]
+"3.10" = ["3.10"]

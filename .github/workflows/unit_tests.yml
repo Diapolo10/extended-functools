@@ -22,6 +22,10 @@ permissions:
   id-token: write
   contents: read
 
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   FORCE_COLOR: 1
 
@@ -51,20 +55,30 @@ jobs:
       uses: astral-sh/setup-uv@v5
       with:
         cache-dependency-glob: "uv.lock"
-        enable-cache: false
+        enable-cache: true
         python-version: ${{ matrix.python-version }}
-        version: "0.5.13"
 
-    - name: Install library and dependencies
-      run: |
-        uv sync --frozen
+    - name: Add .local/bin to Windows PATH
+      if: runner.os == 'Windows'
+      shell: bash
+      run: echo "$USERPROFILE/.local/bin" >> $GITHUB_PATH
 
-    - name: Run Tox (Pytest + Coverage)
-      run: |
-        uvx --with tox-uv tox
+    - name: Install tox
+      run: uv tool install --python-preference only-managed --python 3.13 tox --with tox-uv --with tox-gh
+
+    - name: Install Python
+      if: matrix.python-version != '3.13'
+      run: uv python install --python-preference only-managed ${{ matrix.python-version }}
+
+    - name: Setup test suite
+      run: tox run -vv --notest --skip-missing-interpreters false
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PLATFORM: ${{ matrix.os }}
+        TOX_GH_MAJOR_MINOR: ${{ matrix.python-version }}
+
+    - name: Run test suite
+      run: tox run -vv --skip-pkg-install
+      env:
+        TOX_GH_MAJOR_MINOR: ${{ matrix.python-version }}
 
     - name: Upload Results to CodeCov
       if: success()
