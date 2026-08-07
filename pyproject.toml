@@ -37,21 +37,21 @@ Documentation = "https://github.com/Diapolo10/extended-functools/tree/main/docs"
 
 [dependency-groups]
 dev = [
-    "hatch>=1.14.0",
-    "mypy>=1.15.0",
-    "pre-commit>=4.2.0",
-    "pytest>=8.3.5",
-    "pytest-cov>=6.1.1",
-    "pytest-html>=4.1.1",
-    "pytest-mock>=3.14.0",
-    "pytest-xdist[psutil]>=3.6.1",
-    "ruff>=0.11.5",
-    "tox>=4.25.0",
-    "tox-gh-actions>=3.3.0",
+    "hatch>=1.17.1",
+    "mypy>=2.3.0",
+    "pre-commit>=4.6.1",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1.0",
+    "pytest-html>=4.2.0",
+    "pytest-mock>=3.15.1",
+    "pytest-xdist[psutil]>=3.8.0",
+    "ruff>=0.16.2",
+    "tox>=4.58.0",
+    "tox-gh-actions>=3.5.0",
 ]
 
 [tool.coverage.report]
-exclude_lines = [
+exclude_also = [
     "pragma: not covered",
     "@overload",
     "if TYPE_CHECKING:",
@@ -148,7 +148,7 @@ python =
     3.10: py310
     3.11: py311
     3.12: py312
-    3.12: py313
+    3.13: py313
 
 [testenv]
 pass_env =
@@ -160,3 +160,8 @@ commands =
     uv run --frozen pytest
     uv run --frozen coverage report
 """
+
+[tool.uv]
+constraint-dependencies = [
+    "pygments>=2.20.0",
+]
