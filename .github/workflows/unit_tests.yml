@@ -77,15 +77,6 @@ jobs:
         name: ${{ matrix.os }} - Python ${{ matrix.python-version }}
         token: ${{ secrets.CODECOV_TOKEN }}
 
-    - name: Upload test results to Codecov
-      if: ${{ !cancelled() }}
-      uses: codecov/test-results-action@v1
-      with:
-        directory: ./tests/reports/
-        flags: unittests
-        name: ${{ matrix.os }} - Python ${{ matrix.python-version }}
-        token: ${{ secrets.CODECOV_TOKEN }}
-
 
   testpypi-deploy:
     name: Build and publish Python 🐍 distributions 📦 to TestPyPI
