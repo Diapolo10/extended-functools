@@ -7,7 +7,7 @@ name = "extended-functools"
 version = "0.2.1"
 description = "Additional tools for functional programming in Python."
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = ">=3.11"
 dependencies = []
 authors = [
     {name = "Lari Liuhamo", email = "lari.liuhamo+pypi@gmail.com"},
@@ -21,7 +21,6 @@ classifiers = [
     "Development Status :: 3 - Alpha",
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
@@ -164,5 +163,6 @@ commands =
 
 [tool.uv]
 constraint-dependencies = [
+    "filelock>=4.2.1",
     "pygments>=2.20.0",
 ]
